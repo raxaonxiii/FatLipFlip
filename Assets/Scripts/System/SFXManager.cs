@@ -7,6 +7,7 @@ public class SFXManager : MonoBehaviour
     public static SFXManager current = null;
     private AudioSource aSource;
     public AudioClip start, button, deal, flip, match, win;
+    private bool muted;
 
     private void Start()
     {
@@ -50,5 +51,11 @@ public class SFXManager : MonoBehaviour
     {
         aSource.clip = win;
         aSource.Play();
+    }
+
+    public void Mute()
+    {
+        muted = !muted;
+        aSource.mute = muted;
     }
 }
